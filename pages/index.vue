@@ -4,7 +4,7 @@
     <div v-if="isLoading">Loading...</div>
     <div v-else>
       <div class="grid grid-cols-5 gap-16">
-        <div v-for="(column, index) in data" :key="column.id">
+        <div v-for="column in data" :key="column.id">
           <div class="rounded bg-slate-700 py-1 px-5 mb-2 text-center">
             {{ column.name }}
           </div>
@@ -23,10 +23,10 @@
 </template>
 
 <script lang="ts" setup>
-import type { ICard, IColumn } from '~/components/kanban/kanban.type';
-import { useKanbanQuery } from '~/components/kanban/useKanbanQuery';
-import { convertCurrency } from '@/utils/convertCurrency'
-import dayjs from 'dayjs';
+  import type { ICard, IColumn } from '~/components/kanban/kanban.type';
+  import { useKanbanQuery } from '~/components/kanban/useKanbanQuery';
+  import { convertCurrency } from '@/utils/convertCurrency'
+  import dayjs from 'dayjs';
 
   useSeoMeta({
     title: 'Home'
