@@ -1,11 +1,9 @@
 <template>
-  <div>
-    <NuxtImg src="./loading.svg" class="wrapper" alt="loader"/>
-  </div>
+	<div class="wrapper">
+		<NuxtImg src="/loader.svg" alt="" width="220" />
+	</div>
 </template>
-<script lang="ts" setup>
 
-</script>
 <style scoped>
   .wrapper {
     @apply flex items-center justify-center w-screen h-screen

@@ -8,6 +8,7 @@
           <div class="rounded bg-slate-700 py-1 px-5 mb-2 text-center">
             {{ column.name }}
           </div>
+          <KanbanCreateDeal :refetch="refetch" :status="column.id"/>
           <UiCard v-for="card in column.items" :key="card.id" class="mb-3 bg-slate-900" draggable="true">
             <UiCardHeader role="button">
               <UiCardTitle>{{ card.name }}</UiCardTitle>
@@ -28,6 +29,7 @@
   import { convertCurrency } from '@/utils/convertCurrency'
   import dayjs from 'dayjs';
 
+  useKanbanQuery()
   useSeoMeta({
     title: 'Home'
   })
