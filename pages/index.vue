@@ -5,11 +5,12 @@
     <div v-else>
       <div class="grid grid-cols-5 gap-16">
         <div 
-          v-for="column in data" 
+          v-for="(column, index) in data" 
           :key="column.id"
           @dragover="() => handleDrop(column)"
+          @drop="() => handleDrop(column)"
         >
-          <div class="rounded bg-slate-700 py-1 px-5 mb-2 text-center">
+          <div class="rounded bg-slate-700 py-1 px-5 mb-2 text-center" :style="generateColumnStyle(index, data?.length)">
             {{ column.name }}
           </div>
           <KanbanCreateDeal :refetch="refetch" :status="column.id"/>
@@ -40,6 +41,7 @@
   import { useMutation } from '@tanstack/vue-query';
   import type { EnumStatus } from '~/types/deal.types';
 import { COLLECTION_DEALS, DB_ID } from '~/app.constants';
+import { generateColumnStyle } from '~/components/kanban/generate-gradient';
 
   type TypeMutationVariables = {
     docId: string
